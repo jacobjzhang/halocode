@@ -1,0 +1,11 @@
+<pre>
+	{{#each cleanText as |node line|}}
+		{{note-tag text=node
+			showAnnotation=(action 'showAnnotation' line)
+			line=line}}
+	{{/each}}
+</pre>
+
+<div class="annotation">
+	{{annotation}}
+</div>

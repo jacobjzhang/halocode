@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('code', { path: '/code/:code_id' });
 });
 
 export default Router;

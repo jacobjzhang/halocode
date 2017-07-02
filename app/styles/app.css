@@ -1,0 +1,10 @@
+.annotation {
+  position: fixed;
+  display: block;
+  right: 10px;
+  top: 10px;
+  width: 300px;
+  min-height: 400px;
+  background: lightsalmon;
+  padding: 10px;
+}
