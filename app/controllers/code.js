@@ -4,12 +4,7 @@ const { get, set, computed } = Ember;
 export default Ember.Controller.extend({
   //queryParams: ['code_id'],
 	code_id: 0,
-  annotation: computed('code_id', function() {
-    return Ember.$.getJSON('/api/annotation/1', function(res) {
-      console.log(res)
-    }); 
-  }),
-
+  annotation: '', 
   text: computed.alias('model.data.attributes.text'),
 
   cleanText: computed('text', function() {
@@ -24,8 +19,13 @@ export default Ember.Controller.extend({
 
   actions: {
     showAnnotation(num) {
-    	console.log('showing annotation');
-      set(this, 'code_id', num);
+      console.log('showing annotation');
+    	const call = Ember.$.getJSON('/api/annotation/' + num);
+      return call.then(function(res) {
+        const text = res.data.attributes.text;
+        console.log(text)
+        set(this, 'annotation', text);
+      }); 
     }
   }
 });
